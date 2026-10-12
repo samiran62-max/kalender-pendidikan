@@ -390,43 +390,66 @@
     </div>
 
     <!-- ================= TAB 4: JADWAL KELAS (SISWA LIVE) ================= -->
-    <div id="content-jadwal-siswa" class="hidden space-y-4">
+    <div id="content-jadwal-siswa" class="hidden space-y-6">
       
-      <!-- Action Toolbar -->
-      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-3">
-        <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-lg shrink-0">
-            <i class="fa-solid fa-calendar-check"></i>
+      <!-- Banner Informasi Portal -->
+      <div class="bg-gradient-to-r from-emerald-800 via-teal-800 to-slate-900 text-white p-6 sm:p-8 rounded-3xl shadow-lg relative overflow-hidden">
+        <div class="relative z-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="space-y-2 text-center md:text-left">
+            <span class="bg-emerald-500/20 text-emerald-300 border border-emerald-400/30 text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider inline-flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Aplikasi Resmi Siswa
+            </span>
+            <h3 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Portal Jadwal Pelajaran Per Kelas</h3>
+            <p class="text-emerald-100 text-sm max-w-xl leading-relaxed">
+              Akses jadwal pelajaran harian, guru pengampu, dan mata pelajaran interaktif yang terhubung langsung ke database Google Apps Script SMPN 1 Kandat.
+            </p>
           </div>
-          <div>
-            <h3 class="font-bold text-slate-800 text-sm">Aplikasi Jadwal Pelajaran Per Kelas</h3>
-            <p class="text-xs text-slate-500">Terhubung langsung ke sistem database Google Apps Script Sekolah</p>
+          
+          <div class="shrink-0 w-full md:w-auto">
+            <a href="https://script.google.com/a/macros/guru.smp.belajar.id/s/AKfycbzUolTuSrzUqsPfvXOyDxUiC9FP9CbMZahHLCVAbmjCCDaRYvu0RpmeR7PtQKNELO3d/exec?p=siswa" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-300 text-slate-900 font-extrabold text-base px-6 py-4 rounded-2xl shadow-lg transition transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+              <i class="fa-solid fa-arrow-up-right-from-square text-lg"></i>
+              <span>Buka Jadwal Pelajaran Siswa</span>
+            </a>
           </div>
-        </div>
-
-        <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
-          <button onclick="refreshScheduleIframe()" class="bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold px-3 py-2 rounded-xl transition flex items-center gap-1.5">
-            <i class="fa-solid fa-rotate"></i> Muat Ulang
-          </button>
-          <a href="https://script.google.com/a/macros/guru.smp.belajar.id/s/AKfycbzUolTuSrzUqsPfvXOyDxUiC9FP9CbMZahHLCVAbmjCCDaRYvu0RpmeR7PtQKNELO3d/exec?p=siswa" target="_blank" rel="noopener noreferrer" class="bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold px-4 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Layar Penuh
-          </a>
         </div>
       </div>
 
-      <!-- Live Web App Frame -->
-      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden relative min-h-[680px]">
-        <div id="loadingIframe" class="absolute inset-0 bg-slate-50 flex flex-col items-center justify-center gap-3 z-10 text-slate-500">
-          <i class="fa-solid fa-circle-notch fa-spin text-3xl text-emerald-600"></i>
-          <p class="text-xs font-medium">Memuat Jadwal Pelajaran Siswa...</p>
+      <!-- Fitur & Panduan Akses -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-list-check"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base">Pilih Kelas Lengkap</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Menampilkan seluruh jadwal mata pelajaran dari Kelas 7, 8, hingga Kelas 9 secara *real-time*.
+          </p>
         </div>
-        <iframe 
-          id="scheduleIframe" 
-          src="https://script.google.com/a/macros/guru.smp.belajar.id/s/AKfycbzUolTuSrzUqsPfvXOyDxUiC9FP9CbMZahHLCVAbmjCCDaRYvu0RpmeR7PtQKNELO3d/exec?p=siswa" 
-          class="w-full h-[700px] border-0" 
-          onload="document.getElementById('loadingIframe').style.display='none';"
-          allow="fullscreen">
-        </iframe>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-chalkboard-user"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base">Informasi Guru & Jam</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Dilengkapi rincian nama guru pengampu, kode mata pelajaran, serta durasi jam KBM harian.
+          </p>
+        </div>
+
+        <div class="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
+          <div class="w-12 h-12 bg-purple-50 text-purple-600 rounded-xl flex items-center justify-center text-xl font-bold">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
+          <h4 class="font-bold text-slate-800 text-base">Akses Cepat di HP</h4>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            Didesain khusus agar ramah pengguna smartphone dan mudah disimpan sebagai pintasan layar.
+          </p>
+        </div>
+
       </div>
 
     </div>
@@ -465,16 +488,6 @@
       if(activeBtn) {
         activeBtn.classList.remove('text-slate-500', 'border-transparent');
         activeBtn.classList.add('text-blue-600', 'border-blue-600');
-      }
-    }
-
-    // Refresh Iframe Jadwal Siswa
-    function refreshScheduleIframe() {
-      const iframe = document.getElementById('scheduleIframe');
-      const loader = document.getElementById('loadingIframe');
-      if (iframe && loader) {
-        loader.style.display = 'flex';
-        iframe.src = iframe.src;
       }
     }
 
