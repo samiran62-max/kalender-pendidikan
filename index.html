@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalender Pendidikan & Jadwal Pelajaran 2026/2027 - SMPN 1 Kandat</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    @media print {
+      .no-print { display: none !important; }
+      .print-shadow-none { box-shadow: none !important; border: 1px solid #e5e7eb !important; }
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased">
+
+  <!-- TOP HEADER BANNER -->
+  <header class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 text-white shadow-xl">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+        
+        <!-- Logo & Title -->
+        <div class="flex items-center gap-4 text-center md:text-left">
+          <div class="w-16 h-16 bg-white/10 backdrop-blur-md rounded-2xl p-2 flex items-center justify-center shadow-inner border border-white/20 shrink-0">
+            <i class="fa-solid me-0 fa-graduation-cap text-3xl text-yellow-400"></i>
+          </div>
+          <div>
+            <div class="flex items-center gap-2 justify-center md:justify-start">
+              <span class="bg-yellow-400/20 text-yellow-300 text-xs font-bold px-2.5 py-0.5 rounded-full border border-yellow-400/30">SMPN 1 KANDAT</span>
+              <span class="text-xs text-blue-200">TA 2026/2027</span>
+            </div>
+            <h1 class="text-2xl sm:text-3xl font-extrabold tracking-tight mt-1">Kalender Pendidikan & Jadwal Pelajaran</h1>
+            <p class="text-blue-200 text-sm mt-0.5">Sistem Informasi Akademik & Jadwal Operasional 6 Hari Belajar</p>
+          </div>
+        </div>
+
+        <!-- Quick Info Widget -->
+        <div class="flex items-center gap-3 bg-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/10 no-print">
+          <div class="text-right">
+            <div id="liveClock" class="text-lg font-bold font-mono tracking-wider">00:00:00</div>
+            <div id="liveDate" class="text-xs text-blue-200">Senin, 13 Juli 2026</div>
+          </div>
+          <div class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping" title="Sistem Aktif"></div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex space-x-2 sm:space-x-8 overflow-x-auto">
+        <button onclick="switchTab('ringkasan')" id="tab-ringkasan" class="tab-btn py-4 px-3 border-b-2 font-semibold text-sm flex items-center gap-2 text-blue-600 border-blue-600">
+          <i class="fa-solid fa-chart-pie"></i> Ringkasan Utama
+        </button>
+        <button onclick="switchTab('kalender')" id="tab-kalender" class="tab-btn py-4 px-3 border-b-2 font-semibold text-sm flex items-center gap-2 text-slate-500 border-transparent hover:text-slate-700">
+          <i class="fa-solid fa-calendar-days"></i> Kalender Pendidikan
+        </button>
+        <button onclick="switchTab('jadwal')" id="tab-jadwal" class="tab-btn py-4 px-3 border-b-2 font-semibold text-sm flex items-center gap-2 text-slate-500 border-transparent hover:text-slate-700">
+          <i class="fa-solid fa-clock"></i> Jadwal Pelajaran
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-grow w-full">
+
+    <!-- ================= TAB 1: RINGKASAN UTAMA ================= -->
+    <div id="content-ringkasan" class="space-y-6">
+      
+      <!-- Metrics Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Semester Ganjil</p>
+              <h3 class="text-3xl font-extrabold text-slate-800 mt-1">136 <span class="text-sm font-normal text-slate-500">Hari</span></h3>
+              <p class="text-xs text-blue-600 font-medium mt-1"><i class="fa-solid fa-check-circle me-1"></i>Hari Efektif Belajar</p>
+            </div>
+            <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-book-open"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Semester Genap</p>
+              <h3 class="text-3xl font-extrabold text-slate-800 mt-1">123 <span class="text-sm font-normal text-slate-500">Hari</span></h3>
+              <p class="text-xs text-emerald-600 font-medium mt-1"><i class="fa-solid fa-check-circle me-1"></i>Hari Efektif Belajar</p>
+            </div>
+            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">KTS Ganjil</p>
+              <h3 class="text-3xl font-extrabold text-slate-800 mt-1">3 <span class="text-sm font-normal text-slate-500">Hari</span></h3>
+              <p class="text-xs text-amber-600 font-medium mt-1"><i class="fa-solid fa-calendar me-1"></i>1-3 Oktober 2026</p>
+            </div>
+            <div class="w-12 h-12 bg-amber-50 text-amber-600 rounded-xl flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-cubes"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="bg-white rounded-2xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Skema Belajar</p>
+              <h3 class="text-2xl font-extrabold text-slate-800 mt-1">6 Hari <span class="text-sm font-normal text-slate-500">/Minggu</span></h3>
+              <p class="text-xs text-indigo-600 font-medium mt-1"><i class="fa-solid fa-school me-1"></i>Senin - Sabtu</p>
+            </div>
+            <div class="w-12 h-12 bg-indigo-50 text-indigo-600 rounded-xl flex items-center justify-center text-xl font-bold">
+              <i class="fa-solid fa-user-clock"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Detail Pengesahan & Banner -->
+      <div class="bg-gradient-to-br from-slate-900 to-indigo-950 text-white rounded-3xl p-6 sm:p-8 shadow-lg relative overflow-hidden">
+        <div class="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+          <div class="md:col-span-2 space-y-3">
+            <span class="inline-block bg-yellow-400 text-slate-900 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">SK Kepala Sekolah</span>
+            <h2 class="text-2xl sm:text-3xl font-bold">Kalender Pendidikan Resmi TA 2026/2027</h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Ditetapkan di Kandat pada tanggal <strong>13 Juli 2026</strong> oleh Kepala Sekolah <strong>INSIYAH, S.Pd.</strong>
+            </p>
+            <div class="pt-2 flex flex-wrap gap-3">
+              <button onclick="switchTab('kalender')" class="bg-blue-600 hover:bg-blue-500 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2">
+                Lihat Agenda Kalender <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <button onclick="window.print()" class="bg-white/10 hover:bg-white/20 text-white font-semibold px-5 py-2.5 rounded-xl text-sm transition flex items-center gap-2">
+                <i class="fa-solid fa-print"></i> Cetak Dokumen
+              </button>
+            </div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-md border border-white/10 p-5 rounded-2xl text-center space-y-2">
+            <div class="w-16 h-16 bg-yellow-400 text-slate-900 rounded-full flex items-center justify-center text-2xl font-bold mx-auto shadow-md">
+              <i class="fa-solid fa-stamp"></i>
+            </div>
+            <h4 class="font-bold text-base">Kepala Sekolah</h4>
+            <p class="text-yellow-300 font-semibold text-sm">INSIYAH, S.Pd.</p>
+            <p class="text-xs text-slate-400">NIP / Legalisasi Kaldik 2026</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Timeline Highlights -->
+      <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm">
+        <h3 class="text-lg font-bold text-slate-800 mb-4 flex items-center gap-2">
+          <i class="fa-solid fa-star text-yellow-500"></i> Sorotan Agenda Penting
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div class="p-4 rounded-xl bg-blue-50/60 border border-blue-100 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 font-bold text-sm">JUL</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm">MPLS & Masuk Sekolah</h4>
+              <p class="text-xs text-slate-600 mt-0.5">Hari Pertama Masuk Sekolah & Pelaksanaan MPLS (Juli 2026)</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-amber-50/60 border border-amber-100 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-lg bg-amber-600 text-white flex items-center justify-center shrink-0 font-bold text-sm">OKT</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm">KTS Semester Ganjil</h4>
+              <p class="text-xs text-slate-600 mt-0.5">Kegiatan Tengah Semester (1-3 Oktober 2026)</p>
+            </div>
+          </div>
+          <div class="p-4 rounded-xl bg-emerald-50/60 border border-emerald-100 flex items-start gap-3">
+            <div class="w-10 h-10 rounded-lg bg-emerald-600 text-white flex items-center justify-center shrink-0 font-bold text-sm">MAR</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-sm">Libur Idul Fitri 1448 H</h4>
+              <p class="text-xs text-slate-600 mt-0.5">LHR (8-17 Maret 2027) & Idul Fitri (10-11 Maret)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= TAB 2: KALENDER PENDIDIKAN ================= -->
+    <div id="content-kalender" class="hidden space-y-6">
+      
+      <!-- Filter & Search Bar -->
+      <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm flex flex-col md:flex-row gap-4 items-center justify-between no-print">
+        <div class="flex flex-wrap items-center gap-2 w-full md:w-auto">
+          <button onclick="filterSemester('all')" id="filter-all" class="filter-btn text-xs font-bold px-4 py-2 rounded-xl bg-blue-600 text-white transition">Semua Agenda</button>
+          <button onclick="filterSemester('ganjil')" id="filter-ganjil" class="filter-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Semester Ganjil (2026)</button>
+          <button onclick="filterSemester('genap')" id="filter-genap" class="filter-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Semester Genap (2027)</button>
+        </div>
+        <div class="relative w-full md:w-72">
+          <i class="fa-solid fa-search absolute left-3.5 top-3 text-slate-400 text-sm"></i>
+          <input type="text" id="searchAgenda" onkeyup="searchAgenda()" placeholder="Cari agenda, libur, MPLS..." class="w-full pl-10 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+      </div>
+
+      <!-- Timeline & Event Cards -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        
+        <!-- SEMESTER GANJIL -->
+        <div class="semester-card ganjil-card space-y-4">
+          <div class="bg-blue-900 text-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+              <h3 class="font-bold text-base">Semester Ganjil (2026)</h3>
+            </div>
+            <span class="text-xs bg-blue-800 text-blue-200 px-3 py-1 rounded-full font-semibold">136 Hari Efektif</span>
+          </div>
+
+          <div class="space-y-3" id="list-ganjil">
+            
+            <!-- Juli -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-blue-100 text-blue-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                JULI 2026
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-bold text-slate-800 text-sm">Masuk Sekolah & MPLS</h4>
+                <p class="text-xs text-slate-600">Hari Pertama Masuk Sekolah & Pelaksanaan Masa Pengenalan Lingkungan Sekolah (MPLS).</p>
+                <span class="inline-block bg-blue-50 text-blue-700 text-[10px] font-bold px-2 py-0.5 rounded">Kegiatan Utama</span>
+              </div>
+            </div>
+
+            <!-- Agustus -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-rose-100 text-rose-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                AGUSTUS
+              </div>
+              <div class="space-y-1.5">
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">17 Agustus 2026</h4>
+                  <p class="text-xs text-slate-600">Libur Hari Besar: HUT Kemerdekaan RI Ke-81</p>
+                </div>
+                <div>
+                  <h4 class="font-bold text-slate-800 text-sm">25 Agustus 2026</h4>
+                  <p class="text-xs text-slate-600">Libur Hari Besar: Maulid Nabi Muhammad SAW</p>
+                </div>
+                <span class="inline-block bg-rose-50 text-rose-700 text-[10px] font-bold px-2 py-0.5 rounded">Libur Nasional</span>
+              </div>
+            </div>
+
+            <!-- Oktober -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-amber-100 text-amber-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                OKTOBER
+              </div>
+              <div class="space-y-1">
+                <h4 class="font-bold text-slate-800 text-sm">1 - 3 Oktober 2026</h4>
+                <p class="text-xs text-slate-600">Kegiatan Tengah Semester (KTS) Ganjil (3 Hari).</p>
+                <span class="inline-block bg-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded">Evaluasi KTS</span>
+              </div>
+            </div>
+
+            <!-- Desember -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-indigo-100 text-indigo-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                DESEMBER
+              </div>
+              <div class="space-y-1.5">
+                <p class="text-xs text-slate-600"><strong>24 Desember:</strong> Cuti Bersama Natal</p>
+                <p class="text-xs text-slate-600"><strong>25 Desember:</strong> Libur Hari Raya Natal</p>
+                <p class="text-xs text-slate-600"><strong>26 - 31 Desember:</strong> Libur Semester 1 (LS1)</p>
+                <span class="inline-block bg-indigo-50 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded">Libur Semester & Keagamaan</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SEMESTER GENAP -->
+        <div class="semester-card genap-card space-y-4">
+          <div class="bg-emerald-900 text-white p-4 rounded-2xl flex items-center justify-between shadow-sm">
+            <div class="flex items-center gap-3">
+              <span class="w-3 h-3 rounded-full bg-emerald-400"></span>
+              <h3 class="font-bold text-base">Semester Genap (2027)</h3>
+            </div>
+            <span class="text-xs bg-emerald-800 text-emerald-200 px-3 py-1 rounded-full font-semibold">123 Hari Efektif</span>
+          </div>
+
+          <div class="space-y-3" id="list-genap">
+            
+            <!-- Januari -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-emerald-100 text-emerald-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                JANUARI
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs text-slate-600"><strong>1 Januari:</strong> Libur Tahun Baru Masehi</p>
+                <p class="text-xs text-slate-600"><strong>2 - 4 Januari:</strong> Lanjutan Libur Semester 1 (LS1)</p>
+                <p class="text-xs text-slate-600"><strong>5 Januari:</strong> Libur Isra' Mi'raj Nabi Muhammad SAW</p>
+                <span class="inline-block bg-emerald-50 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded">Awal Tahun</span>
+              </div>
+            </div>
+
+            <!-- Februari -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-red-100 text-red-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                FEBRUARI
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs text-slate-600"><strong>6 Februari:</strong> Libur Tahun Baru Imlek 2578</p>
+                <p class="text-xs text-slate-600"><strong>8 - 10 Februari:</strong> Kegiatan Permulaan Puasa (KPP)</p>
+                <span class="inline-block bg-red-50 text-red-700 text-[10px] font-bold px-2 py-0.5 rounded">Kegiatan Keagamaan</span>
+              </div>
+            </div>
+
+            <!-- Maret -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-purple-100 text-purple-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                MARET
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs text-slate-600"><strong>8 - 17 Maret:</strong> Libur Sekitar Hari Raya (LHR) Idul Fitri 1448 H</p>
+                <p class="text-xs text-slate-600"><strong>9 Maret:</strong> Libur Hari Raya Nyepi</p>
+                <p class="text-xs text-slate-600"><strong>10 - 11 Maret:</strong> Hari Raya Idul Fitri 1448 H</p>
+                <p class="text-xs text-slate-600"><strong>26 & 28 Maret:</strong> Wafat Isa Almasih & Hari Paskah</p>
+                <span class="inline-block bg-purple-50 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded">Libur Hari Raya</span>
+              </div>
+            </div>
+
+            <!-- Mei -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-teal-100 text-teal-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                MEI
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs text-slate-600"><strong>1 Mei:</strong> Libur Hari Buruh</p>
+                <p class="text-xs text-slate-600"><strong>6 Mei:</strong> Kenaikan Isa Almasih</p>
+                <p class="text-xs text-slate-600"><strong>17 Mei:</strong> Hari Raya Idul Adha</p>
+                <p class="text-xs text-slate-600"><strong>20 Mei:</strong> Hari Raya Waisak</p>
+                <span class="inline-block bg-teal-50 text-teal-700 text-[10px] font-bold px-2 py-0.5 rounded">Hari Besar</span>
+              </div>
+            </div>
+
+            <!-- Juni -->
+            <div class="agenda-item bg-white p-4 rounded-xl border border-slate-200 shadow-sm flex gap-4 items-start">
+              <div class="bg-cyan-100 text-cyan-800 font-extrabold text-xs px-3 py-2 rounded-lg text-center shrink-0 w-20">
+                JUNI
+              </div>
+              <div class="space-y-1">
+                <p class="text-xs text-slate-600"><strong>1 & 6 Juni:</strong> Hari Lahir Pancasila & Tahun Baru Hijriyah 1449 H</p>
+                <p class="text-xs text-slate-600"><strong>21 - 30 Juni:</strong> Libur Semester 2 (LS2)</p>
+                <span class="inline-block bg-cyan-50 text-cyan-700 text-[10px] font-bold px-2 py-0.5 rounded">Libur Akhir Tahun</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ================= TAB 3: JADWAL PELAJARAN ================= -->
+    <div id="content-jadwal" class="hidden space-y-6">
+      
+      <!-- Info Pembiasaan Pagi Banner -->
+      <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-start gap-3">
+        <i class="fa-solid fa-bullhorn text-amber-600 text-xl mt-0.5"></i>
+        <div>
+          <h4 class="font-bold text-amber-900 text-sm">Ketentuan Pembiasaan Pagi (Selasa - Kamis)</h4>
+          <p class="text-xs text-amber-800 mt-0.5 leading-relaxed">
+            Dilaksanakan <strong>10 menit sebelum KBM</strong> meliputi: Indonesia Raya, Berdoa, Asmaul Husna, Mars Spensaka, Murojaah Surat Pendek, dan Literasi.
+          </p>
+        </div>
+      </div>
+
+      <!-- Filter Hari -->
+      <div class="flex flex-wrap gap-2 no-print">
+        <button onclick="filterDay('all')" id="day-all" class="day-btn text-xs font-bold px-4 py-2 rounded-xl bg-blue-600 text-white transition">Semua Hari</button>
+        <button onclick="filterDay('senin')" id="day-senin" class="day-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Senin</button>
+        <button onclick="filterDay('selasa')" id="day-selasa" class="day-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Selasa - Kamis</button>
+        <button onclick="filterDay('jumat')" id="day-jumat" class="day-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Jumat</button>
+        <button onclick="filterDay('sabtu')" id="day-sabtu" class="day-btn text-xs font-bold px-4 py-2 rounded-xl bg-slate-100 text-slate-600 hover:bg-slate-200 transition">Sabtu</button>
+      </div>
+
+      <!-- Table Jadwal -->
+      <div class="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="w-full text-left text-sm">
+            <thead class="bg-slate-900 text-white uppercase text-xs tracking-wider">
+              <tr>
+                <th class="py-3.5 px-4 font-bold text-center w-24">Jam Ke-</th>
+                <th class="py-3.5 px-4 font-bold col-senin">Senin</th>
+                <th class="py-3.5 px-4 font-bold col-selasa">Selasa - Kamis</th>
+                <th class="py-3.5 px-4 font-bold col-jumat">Jumat</th>
+                <th class="py-3.5 px-4 font-bold col-sabtu">Sabtu</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 font-medium">
+              
+              <!-- 07:00 - 07:20 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-slate-500 text-center bg-slate-50 text-xs">07.00 - 07.20</td>
+                <td class="py-3 px-4 col-senin"><span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-md font-semibold">Upacara (s.d. 07.40)</span></td>
+                <td class="py-3 px-4 col-selasa"><span class="bg-amber-100 text-amber-800 text-xs px-2.5 py-1 rounded-md font-semibold">Pembiasaan Pagi (07.10-07.50)</span></td>
+                <td class="py-3 px-4 col-jumat"><span class="bg-emerald-100 text-emerald-800 text-xs px-2.5 py-1 rounded-md font-semibold">Pembiasaan Yasinan</span></td>
+                <td class="py-3 px-4 col-sabtu" rowspan="2"><span class="bg-purple-100 text-purple-800 text-xs px-2.5 py-1 rounded-md font-semibold">SITERA (07.00 - 08.00)</span></td>
+              </tr>
+
+              <!-- Jam 1 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 1</td>
+                <td class="py-3 px-4 col-senin">07.40 - 08.20</td>
+                <td class="py-3 px-4 col-selasa">07.10 - 07.50</td>
+                <td class="py-3 px-4 col-jumat">07.20 - 08.00</td>
+              </tr>
+
+              <!-- Jam 2 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 2</td>
+                <td class="py-3 px-4 col-senin">08.20 - 09.00</td>
+                <td class="py-3 px-4 col-selasa">07.50 - 08.30</td>
+                <td class="py-3 px-4 col-jumat">08.00 - 08.40</td>
+                <td class="py-3 px-4 col-sabtu">08.00 - 08.40</td>
+              </tr>
+
+              <!-- Jam 3 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 3</td>
+                <td class="py-3 px-4 col-senin">09.00 - 09.40</td>
+                <td class="py-3 px-4 col-selasa">08.30 - 09.10</td>
+                <td class="py-3 px-4 col-jumat bg-yellow-50 text-yellow-800 font-semibold" rowspan="2">08.40 - 09.30 (Istirahat / MBG)</td>
+                <td class="py-3 px-4 col-sabtu">08.40 - 09.20</td>
+              </tr>
+
+              <!-- Istirahat 1 -->
+              <tr class="bg-amber-50/70 hover:bg-amber-100/70 transition">
+                <td class="py-3 px-4 font-bold text-amber-800 text-center">Istirahat 1</td>
+                <td class="py-3 px-4 col-senin font-semibold text-amber-900">09.40 - 10.20 (MBG)</td>
+                <td class="py-3 px-4 col-selasa font-semibold text-amber-900">09.10 - 09.50 (MBG)</td>
+                <td class="py-3 px-4 col-sabtu font-semibold text-amber-900">09.20 - 10.00 (Istirahat)</td>
+              </tr>
+
+              <!-- Jam 4 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 4</td>
+                <td class="py-3 px-4 col-senin">10.20 - 11.00</td>
+                <td class="py-3 px-4 col-selasa">09.50 - 10.30</td>
+                <td class="py-3 px-4 col-jumat">09.30 - 10.10</td>
+                <td class="py-3 px-4 col-sabtu">10.00 - 10.40</td>
+              </tr>
+
+              <!-- Jam 5 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 5</td>
+                <td class="py-3 px-4 col-senin">11.00 - 11.40</td>
+                <td class="py-3 px-4 col-selasa">10.30 - 11.10</td>
+                <td class="py-3 px-4 col-jumat">10.10 - 10.50</td>
+                <td class="py-3 px-4 col-sabtu font-semibold text-emerald-700">10.40 - 11.20 (Jam Ke-6 Selesai)</td>
+              </tr>
+
+              <!-- Istirahat 2 -->
+              <tr class="bg-amber-50/70 hover:bg-amber-100/70 transition">
+                <td class="py-3 px-4 font-bold text-amber-800 text-center">Istirahat 2</td>
+                <td class="py-3 px-4 col-senin font-semibold text-amber-900">11.40 - 12.00</td>
+                <td class="py-3 px-4 col-selasa font-semibold text-amber-900">11.10 - 11.30</td>
+                <td class="py-3 px-4 col-jumat text-slate-400 text-center">-</td>
+                <td class="py-3 px-4 col-sabtu text-slate-400 text-center">-</td>
+              </tr>
+
+              <!-- Jam 6 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 6</td>
+                <td class="py-3 px-4 col-senin">12.00 - 12.30</td>
+                <td class="py-3 px-4 col-selasa">11.30 - 12.10</td>
+                <td class="py-3 px-4 col-jumat text-slate-400 text-center">-</td>
+                <td class="py-3 px-4 col-sabtu font-semibold text-emerald-700">10.40 - 11.20</td>
+              </tr>
+
+              <!-- Jam 7 -->
+              <tr class="hover:bg-slate-50 transition">
+                <td class="py-3 px-4 font-bold text-blue-600 text-center bg-blue-50/50">Jam 7</td>
+                <td class="py-3 px-4 col-senin">12.30 - 13.00</td>
+                <td class="py-3 px-4 col-selasa">12.10 - 12.50</td>
+                <td class="py-3 px-4 col-jumat text-slate-400 text-center">-</td>
+                <td class="py-3 px-4 col-sabtu text-slate-400 text-center">-</td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="bg-slate-900 text-slate-400 border-t border-slate-800 py-6 mt-auto no-print">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+      <div>
+        <p class="font-semibold text-slate-300">SMP Negeri 1 Kandat - Kabupaten Kediri</p>
+        <p class="mt-0.5">Penetapan Kaldik: Kandat, 13 Juli 2026 oleh Kepala Sekolah INSIYAH, S.Pd.</p>
+      </div>
+      <div class="text-slate-500">
+        &copy; 2026 SMPN 1 Kandat. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT CODE -->
+  <script>
+    // Tab Switcher
+    function switchTab(tabName) {
+      const tabs = ['ringkasan', 'kalender', 'jadwal'];
+      tabs.forEach(t => {
+        document.getElementById(`content-${t}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-${t}`);
+        btn.classList.remove('text-blue-600', 'border-blue-600');
+        btn.classList.add('text-slate-500', 'border-transparent');
+      });
+
+      document.getElementById(`content-${tabName}`).classList.remove('hidden');
+      const activeBtn = document.getElementById(`tab-${tabName}`);
+      activeBtn.classList.remove('text-slate-500', 'border-transparent');
+      activeBtn.classList.add('text-blue-600', 'border-blue-600');
+    }
+
+    // Filter Semester
+    function filterSemester(type) {
+      const ganjil = document.querySelector('.ganjil-card');
+      const genap = document.querySelector('.genap-card');
+      
+      const btns = ['all', 'ganjil', 'genap'];
+      btns.forEach(b => {
+        const btn = document.getElementById(`filter-${b}`);
+        btn.classList.remove('bg-blue-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'text-slate-600');
+      });
+
+      const activeBtn = document.getElementById(`filter-${type}`);
+      activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+      activeBtn.classList.add('bg-blue-600', 'text-white');
+
+      if (type === 'all') {
+        ganjil.classList.remove('hidden');
+        genap.classList.remove('hidden');
+      } else if (type === 'ganjil') {
+        ganjil.classList.remove('hidden');
+        genap.classList.add('hidden');
+      } else if (type === 'genap') {
+        ganjil.classList.add('hidden');
+        genap.classList.remove('hidden');
+      }
+    }
+
+    // Filter Hari Jadwal Pelajaran
+    function filterDay(day) {
+      const days = ['all', 'senin', 'selasa', 'jumat', 'sabtu'];
+      const cols = {
+        senin: document.querySelectorAll('.col-senin'),
+        selasa: document.querySelectorAll('.col-selasa'),
+        jumat: document.querySelectorAll('.col-jumat'),
+        sabtu: document.querySelectorAll('.col-sabtu')
+      };
+
+      days.forEach(d => {
+        const btn = document.getElementById(`day-${d}`);
+        if(btn) {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('bg-slate-100', 'text-slate-600');
+        }
+      });
+
+      const activeBtn = document.getElementById(`day-${day}`);
+      if(activeBtn) {
+        activeBtn.classList.remove('bg-slate-100', 'text-slate-600');
+        activeBtn.classList.add('bg-blue-600', 'text-white');
+      }
+
+      if (day === 'all') {
+        Object.values(cols).forEach(colList => colList.forEach(cell => cell.classList.remove('hidden')));
+      } else {
+        Object.keys(cols).forEach(k => {
+          if (k === day) {
+            cols[k].forEach(cell => cell.classList.remove('hidden'));
+          } else {
+            cols[k].forEach(cell => cell.classList.add('hidden'));
+          }
+        });
+      }
+    }
+
+    // Search Agenda Function
+    function searchAgenda() {
+      const input = document.getElementById('searchAgenda').value.toLowerCase();
+      const items = document.querySelectorAll('.agenda-item');
+
+      items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(input)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Live Clock Widget
+    function updateClock() {
+      const now = new Date();
+      const timeStr = now.toLocaleTimeString('id-ID', { hour12: false });
+      const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const dateStr = now.toLocaleDateString('id-ID', dateOptions);
+
+      document.getElementById('liveClock').innerText = timeStr;
+      document.getElementById('liveDate').innerText = dateStr;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+</body>
+</html>
